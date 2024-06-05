@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { MotionConfig, motion } from "framer-motion";
 import NvLinks from "./NvLinks";
@@ -35,7 +36,7 @@ export const Hamburger = () => {
         initial={false}
         animate={active ? "open" : "closed"}
         onClick={() => setActive((pv) => !pv)}
-        className="relative h-12 w-12 bg-white/0 transition-colors hover:bg-white/20"
+        className="relative h-12 w-12 bg-white/0 transition-colors bg-orange rounded-full"
       >
         <motion.span
           variants={VARIANTS.top}
@@ -66,7 +67,7 @@ export const Hamburger = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="bg-green-500 absolute left-0 -bottom-20 pl-10 w-full"
+                className=" bg-white absolute left-0 -bottom-24 pl-10 w-full z-[10] "
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <NvLinks />

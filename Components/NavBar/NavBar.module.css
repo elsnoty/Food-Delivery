@@ -1,6 +1,6 @@
 .navHoverEff{
-    @apply hover:scale-105 duration-300 ease-linear
+    @apply hover:scale-105 duration-300 ease-linear;
 }
 .linksHover{
-    @apply hover:text-orange-500
+    @apply hover:text-orangeCustom;
 }

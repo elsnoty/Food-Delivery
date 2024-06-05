@@ -26,7 +26,9 @@ const Nav = () => {
       </div>
       <Cart />
       </div>
+      <div className='max-md:hidden'>
       <NavBtns />
+      </div>
       <Hamburger />
     </div>
   )
