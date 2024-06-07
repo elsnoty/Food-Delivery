@@ -7,29 +7,29 @@ import Uber from "../../public/Uber.svg"
 import Image from 'next/image'
 const Brand = () => {
   return (
-    <div className='text-center px-36 py-10
-    max-lg:px-12 max-md:px-5 bg-stone-100'>
+    <div className='text-center px-36 py-14
+    max-lg:px-12 max-md:px-5'>
       <h3 className='text-2xl font-bold'>Order from your favorite app today!</h3>
-      <div className='flex justify-center gap-12 py-9 max-md:flex-col items-center'>
+      <div className='flex flex-wrap justify-center gap-12 py-9 items-center'>
         <Image 
         src={Door} 
-        alt=''
+        alt='Door'
         className='cursor-pointer hover:scale-95 transition-all'/>
         <Image 
         src={GruHup} 
-        alt=''
+        alt='GruHup'
         className='cursor-pointer hover:scale-95 transition-all'/>
         <Image 
         src={Uber} 
-        alt=''
+        alt='Uber'
         className='cursor-pointer hover:scale-95 transition-all'/>
         <Image 
         src={Rappi} 
-        alt=''
+        alt='Rappi'
         className='cursor-pointer hover:scale-95 transition-all'/>
         <Image 
         src={Post} 
-        alt=''
+        alt='Post'
         className='cursor-pointer hover:scale-95 transition-all'/>
       </div>
       <hr />
