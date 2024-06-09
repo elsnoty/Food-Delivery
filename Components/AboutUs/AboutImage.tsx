@@ -14,7 +14,7 @@ const AboutImage = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (imageRef.current) {
-            gsap.fromTo(imageRef.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, ease: "power4.out" });
+            gsap.fromTo(imageRef.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1,delay: 0.3, ease: "power4.out" });
           }
           if (dtaaRef.current) {
             gsap.fromTo(dtaaRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power4.out" });

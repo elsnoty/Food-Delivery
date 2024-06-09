@@ -10,7 +10,7 @@ import NvLinks from './NvLinks';
 
 const Nav = () => {
   return (
-    <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center gap-3'>
       <div className='flex items-center gap-3'>
         <Link href="/" passHref>
           <Image
@@ -22,12 +22,12 @@ const Nav = () => {
             placeholder='empty'
           />
         </Link>
-        <div className='max-lg:hidden'>
+        <div className='max-md:hidden'>
           <NvLinks />
         </div>
         <Cart />
       </div>
-      <div className='max-md:hidden'>
+      <div className='max-lg:hidden'>
         <NavBtns />
       </div>
       <Hamburger />

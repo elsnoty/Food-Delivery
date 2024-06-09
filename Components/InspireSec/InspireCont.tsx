@@ -12,7 +12,7 @@ const InspireCont = () => {
         const observe = new IntersectionObserver((entries)=>{
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    gsap.fromTo(el, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: "power4.out" });
+                    gsap.fromTo(el, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 0.6, ease: "power4.out" });
                     observe.disconnect();
                   }
             });

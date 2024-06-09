@@ -4,7 +4,7 @@ import Styles from './NavBar.module.css';
 
 const NvLinks = () => {
   return (
-    <div className='flex gap-3 max-lg:flex-col'>
+    <div className='flex gap-3 max-md:flex-col'>
       <Link href="/" passHref>
         <p className={Styles.linksHover}>Home</p>
       </Link>

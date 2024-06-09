@@ -33,7 +33,7 @@ const HeroImg = () => {
           id="hero-img"
           src={HerImg} 
           alt='Heroimg' 
-          className='rounded-lg w-full' 
+          className='rounded-lg min-w-[270px]' 
           priority 
         />
       )}
