@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Btn from '../btn';
 import Styles from "../NavBar/NavBar.module.css";
+import Link from 'next/link';
 
 const AboutContent = () => {
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -34,13 +35,15 @@ const AboutContent = () => {
       <p className='pt-12'>Lorem ipsum dolor sit amet consectetur adipiscing elit enim bibendum sed et aliquet aliquet 
         risus tempor semper odio egestas id pulvinar consectetur elit tortor non hac pellentesque lacus
         donec accumsan quisque ultricies adipiscing mauris tortor cras est eu accumsan mauris.</p>
+        <Link href="/About">
       <Btn 
-        className={`bg-[#ea580c] text-white font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c] 
+        className={`bg-orangeCustom text-white font-bold py-5 px-7 rounded-full shadow-sm shadow-orangeCustom 
         ${Styles.navHoverEff} max-md:w-full mt-7 ml-2`}
         text={'About us'} 
       />        
+        </Link>
       <Btn 
-        className={`bg-[white] text-[#ea580c] font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c]  
+        className={`bg-[white] text-orangeCustom font-bold py-5 px-7 rounded-full shadow-sm shadow-orangeCustom  
         ${Styles.navHoverEff} max-md:w-full my-7 ml-2`}
         text={'Join Our Team'} 
       />

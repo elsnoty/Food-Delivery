@@ -9,7 +9,11 @@ export const Hamburger = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setWidth(window.innerWidth);
+      const newWidth = window.innerWidth;
+      setWidth(newWidth);
+      if (newWidth > 768 && active) {
+        setActive(false);
+      }
     };
 
     // Set initial width
@@ -24,14 +28,14 @@ export const Hamburger = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [active]);
 
-  const isMobile = width <= 791;
+  const isMobile = width <= 768;
 
   return (
     <>
       {isMobile ? (
-        <div className="grid place-content-center bg-orange-500 rounded-full">
+        <div className="grid place-content-center bg-orange-500 rounded-full ">
           <MotionConfig transition={{ duration: 0.5, ease: 'easeInOut' }}>
             <motion.button
               initial={false}
@@ -62,8 +66,8 @@ export const Hamburger = () => {
             </motion.button>
           </MotionConfig>
         </div>
-      ): ""}
-      {active && (
+      ) : ""}
+      {active ? (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,7 +77,7 @@ export const Hamburger = () => {
         >
           <NvLinks />
         </motion.div>
-      )}
+      ) : ""}
     </>
   );
 };
