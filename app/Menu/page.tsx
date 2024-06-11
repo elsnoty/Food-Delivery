@@ -1,11 +1,12 @@
+import Menu from '@/Components/MenuPage/Menu';
 import React from 'react'
 
-const Menu = () => {
+const MenuPage = () => {
   return (
     <div>
-      Menu
+      <Menu />
     </div>
   )
 }
 
-export default Menu;
+export default MenuPage;
