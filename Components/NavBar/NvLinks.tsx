@@ -14,6 +14,9 @@ const NvLinks = () => {
       <Link href="/Menu" passHref>
         <p className={Styles.linksHover}>Menu</p>
       </Link>
+      <Link href="/Contact" passHref>
+        <p className={Styles.linksHover}>Contact</p>
+      </Link>
     </div>
   );
 };

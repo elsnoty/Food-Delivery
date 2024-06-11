@@ -5,10 +5,10 @@ const NavBtns = () => {
   return (
     <div className='flex gap-5 max-md:flex-col'>
     <Link href="/OrderOnline">
-      <button className={`bg-white p-4 rounded-full shadow-lg hover:bg-[#ea580c] hover:text-white navHoverEff ${Styles.navHoverEff} max-md:w-full` }>Order Online</button>
+      <button className={`bg-white p-3 rounded-full shadow-lg hover:bg-orangeCustom hover:text-white navHoverEff ${Styles.navHoverEff} max-md:w-full` }>Order Online</button>
     </Link>
-    <Link href="/Resrevate">
-      <button className={`bg-[#ea580c] text-white font-bold p-4 rounded-full shadow-sm shadow-[#ea580c] navHoverEff ${Styles.navHoverEff} max-md:w-full`}>Resrevate</button>
+    <Link href="/Contact">
+      <button className={`bg-orangeCustom text-white font-bold p-3 rounded-full shadow-sm shadow-orangecbg-orangeCustom navHoverEff ${Styles.navHoverEff} max-md:w-full`}>Resrevate</button>
     </Link>
     </div>
   )

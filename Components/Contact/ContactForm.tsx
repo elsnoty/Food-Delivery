@@ -53,7 +53,7 @@ const ContactForm = () => {
           <label htmlFor="note" className="block mb-2">Add a note:</label>
           <textarea id="note" name="note" className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none resize-none" placeholder="Add your note"></textarea>
         </div>
-        <Link href="/Resrevate">
+        <Link href="/Contact">
         <Btn className={`bg-orangeCustom text-white font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c] border border-white
         ${Styles.navHoverEff} max-md:w-full mt-7 ml-2 `} text={`Book a Table`}/>
         </Link>

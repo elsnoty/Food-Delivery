@@ -16,7 +16,7 @@ const TiltleClient = () => {
         <Btn className={`bg-orangeCustom text-white font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c] 
         ${Styles.navHoverEff} max-md:w-full mt-7 ml-2`} text={'Order Online'} />
         </Link>
-        <Link href="/Resrevate">
+        <Link href="/Contact">
         <Btn className={`bg-white font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c] border border-white
         ${Styles.navHoverEff} max-md:w-full mt-7 ml-2 hover:bg-orangeCustom`} text={'Book a Table'} />
         </Link>

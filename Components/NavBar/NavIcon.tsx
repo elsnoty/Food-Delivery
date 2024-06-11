@@ -72,7 +72,7 @@ export const Hamburger = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="bg-white absolute left-0 -bottom-24 pl-10 w-full z-[10]"
+          className="bg-white absolute left-0 -bottom-32 pl-10 w-full z-[10]"
           transition={{ duration: 0.5, ease: 'easeInOut' }}
         >
           <NvLinks />

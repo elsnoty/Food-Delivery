@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import Btn from '../btn'
 import Styles from "../NavBar/NavBar.module.css"
 import gsap from 'gsap'
+import Link from 'next/link'
 const InspireCont = () => {
     const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -29,10 +30,14 @@ const InspireCont = () => {
       <h1 className='font-bold text-4xl pb-4'>Taste the most delicious burger in Los Angeles, CA</h1>
       <p className='py-5'>Lorem ipsum dolor sit amet consectetur adipiscing elit ugue quam diam vitae velit bibendum elementum.</p>
       <div className='flex flex-wrap'>
+        <Link href="/Menu">
         <Btn className={`bg-[white] text-black font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c] 
         ${Styles.navHoverEff} max-md:w-full mt-7 ml-2 ${Styles.linksHover}`} text={'Order Online'} />
+        </Link>
+        <Link href="/Contact">
         <Btn className={`bg-transparent text-white font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c] border border-white
-        ${Styles.navHoverEff} max-md:w-full mt-7 ml-2 hover:bg-black`} text={'Book a Table'} />
+        ${Styles.navHoverEff} max-md:w-full mt-7 ml-2 hover:bg-black`} text={'Book a Table'}/>
+        </Link>
       </div>
     </div>
   )
