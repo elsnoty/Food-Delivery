@@ -1,11 +1,13 @@
 import Menu from '@/Components/MenuPage/Menu';
+import MenuApp from '@/Components/MenuPage/MenuApp';
 import React from 'react'
 
 const MenuPage = () => {
   return (
-    <div>
+    <section>
       <Menu />
-    </div>
+      <MenuApp />
+    </section>
   )
 }
 

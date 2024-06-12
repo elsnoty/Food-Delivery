@@ -1,84 +1,105 @@
 "use client"
-import React, { useState } from 'react'
-import pr1o from "../../public/pro1.jpeg"
-import pr2o from "../../public/pro2.jpeg"
-import pr3o from "../../public/pro3.jpeg"
-import pr4o from "../../public/pro4.jpeg"
-import pr5o from "../../public/pro5.jpeg"
-import pr6o from "../../public/pro6.jpeg"
-import pr7o from "../../public/pro7.jpeg"
-import pr8o from "../../public/pro8.jpeg"
-import Image, { StaticImageData } from 'next/image'
+import React, { useState } from 'react';
+import pr1o from "../../public/pro1.jpeg";
+import pr2o from "../../public/pro2.jpeg";
+import pr3o from "../../public/pro3.jpeg";
+import pr4o from "../../public/pro4.jpeg";
+import pr5o from "../../public/pro5.jpeg";
+import pr6o from "../../public/pro6.jpeg";
+import pr7o from "../../public/pro7.jpeg";
+import pr8o from "../../public/pro8.jpeg";
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
-interface Products {
-    photo: StaticImageData,
-    name: string,
-    details: string,
-    price: number,
-    id: number,
-    category?: string,
+export interface Products {
+    photo: StaticImageData;
+    name: string;
+    details: string;
+    price: number;
+    id: number;
+    category?: string;
 }
 
 const MenuProducts = () => {
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-    const filteredProducts = selectedCategory  //selectedCategory !== null null = false
-        ? products.filter(product => product.category === selectedCategory)
-        : products
+    const filteredProducts = selectedCategory
+        ? ProductsFood.filter(product => product.category === selectedCategory)
+        : ProductsFood;
 
+        const handleCategoryClick = (category: string | null) => {
+            setSelectedCategory(category);
+        };
     return (
-        <div>
-            <div className='flex gap-4 justify-center'>
-                <button 
-                    className={`shadow-lg hover:bg-orangeCustom transition-all duration-300 rounded-full p-3`}
-                    onClick={() => setSelectedCategory(null)}>
+        <div className='py-10'>
+            <div className='flex gap-4 justify-center flex-wrap'>
+                <button
+                    className={`shadow-lg transition-all duration-300 rounded-full p-3 ${selectedCategory === null ? 'bg-orangeCustom' : 'bg-white'}`}
+                    onClick={() => handleCategoryClick(null)}
+                >
                     All
                 </button>
-                <button 
-                    className={`shadow-lg hover:bg-orangeCustom transition-all duration-300 rounded-full p-3`}
-                    onClick={() => setSelectedCategory("Breakfast")}>
+                <button
+                    className={`shadow-lg transition-all duration-300 rounded-full p-3 ${selectedCategory === "Breakfast" ? 'bg-orangeCustom' : 'bg-white'}`}
+                    onClick={() => handleCategoryClick("Breakfast")}
+                >
                     Breakfast
                 </button>
-                <button 
-                    className={`shadow-lg hover:bg-orangeCustom transition-all duration-300 rounded-full p-3`}
-                    onClick={() => setSelectedCategory("Main Dish")}>
+                <button
+                    className={`shadow-lg transition-all duration-300 rounded-full p-3 ${selectedCategory === "Main Dish" ? 'bg-orangeCustom' : 'bg-white'}`}
+                    onClick={() => handleCategoryClick("Main Dish")}
+                >
                     Main Dishes
                 </button>
-                <button 
-                    className={`shadow-lg hover:bg-orangeCustom transition-all duration-300 rounded-full p-3`}
-                    onClick={() => setSelectedCategory("Drinks")}>
+                <button
+                    className={`shadow-lg transition-all duration-300 rounded-full p-3 ${selectedCategory === "Drinks" ? 'bg-orangeCustom' : 'bg-white'}`}
+                    onClick={() => handleCategoryClick("Drinks")}
+                >
                     Drinks
                 </button>
-                <button 
-                    className={`shadow-lg hover:bg-orangeCustom transition-all duration-300 rounded-full p-3`}
-                    onClick={() => setSelectedCategory("Dessert")}>
+                <button
+                    className={`shadow-lg transition-all duration-300 rounded-full p-3 ${selectedCategory === "Dessert" ? 'bg-orangeCustom' : 'bg-white'}`}
+                    onClick={() => handleCategoryClick("Dessert")}
+                >
                     Desserts
                 </button>
             </div>
-      <div className='grid grid-cols-4 gap-5 pt-10'>
-        {
-            filteredProducts.map((pro)=> (
-                <div key={pro.id} className={`cursor-pointer group hover:-translate-y-3 transition-all duration-300 relative flex
-                 flex-col items-center text-center gap-5`}>
-                    <Image
-                    src={pro.photo}
-                    alt={pro.name}
-                    className='rounded-xl '/>
-                    <h1 className='font-bold text-3xl'>{pro.name}</h1>
-                    <p className='text-grayCustom'>{pro.details}</p>
-                    <span className='absolute right-0 top-0 bg-white rounded-full text-grayCustom p-2
-                     group-hover:bg-black group-hover:text-white '>${pro.price}</span>
-                </div>
-            ))
-        }
-      </div>
-    </div>
-  )
-}
+            <div className='grid grid-cols-4 gap-5 pt-10 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1'>
+                {filteredProducts.map((pro) => (
+                    <Link
+                        href={{
+                            pathname: `/Menu/${pro.id}`,
+                            query: {
+                                name: pro.name,
+                                details: pro.details,
+                                price: pro.price.toString(),
+                                photo: pro.photo.src,
+                            },
+                        }}
+                        key={pro.id}
+                    >
+                        <div className={`cursor-pointer group hover:-translate-y-3 transition-all duration-300 relative flex
+                            flex-col items-center text-center gap-5`}>
+                            <Image
+                                src={pro.photo}
+                                alt={pro.name}
+                                className='rounded-xl'
+                            />
+                            <h1 className='font-bold text-3xl'>{pro.name}</h1>
+                            <p className='text-grayCustom'>{pro.details}</p>
+                            <span className='absolute right-0 top-0 bg-white rounded-full text-grayCustom p-2
+                            group-hover:bg-black group-hover:text-white '>${pro.price}</span>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+};
 
-export default MenuProducts
+export default MenuProducts;
 
-const products: Products[] = [
+export const ProductsFood: Products[] = [
     {
         id: 1,
         photo: pr1o,
@@ -143,4 +164,4 @@ const products: Products[] = [
         price: 1.99,
         category: "Drinks",
     },
-]
+];

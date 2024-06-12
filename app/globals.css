@@ -4,4 +4,8 @@
 
 *{
     box-sizing: border-box;
+    font-family: sans-serif;
+}
+p{
+    color: #696969;
 }

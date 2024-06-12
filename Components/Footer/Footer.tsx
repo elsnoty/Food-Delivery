@@ -3,6 +3,7 @@ import React from 'react'
 import logo from "../../public/Logo.svg"
 import FooterSocial from './FooterSocial'
 import FooterLink from './FooterLink'
+import Link from 'next/link'
 const Footer = () => {
   return (
     <footer className='grid grid-cols-3 gap-5 text-grayCustom px-28 max-lg:px-10 max-md:px-5 py-14'>
@@ -16,12 +17,12 @@ const Footer = () => {
         </div>
         <div className='flex flex-col text-grayCustom'>
             <h1 className='font-bold text-3xl text-black'>Pages</h1>
-            <FooterLink text={'Home'} />
-            <FooterLink text={'About'} />
-            <FooterLink text={'Menu'} />
-            <FooterLink text={'Blog'} />
-            <FooterLink text={'Delivery'} />
-            <FooterLink text={'Contact'} />
+            <Link href="/"><FooterLink text={'Home'} /></Link>
+            <Link href="/About"><FooterLink text={'About'} /></Link>
+            <Link href="/Menu"><FooterLink text={'Menu'} /></Link>
+            <Link href="/"><FooterLink text={'Blog'} /></Link>
+            <Link href="/Menu"><FooterLink text={'Delivery'} /></Link>
+            <Link href="/Contact"><FooterLink text={'Contact'} /></Link>
         </div>
         <div className='flex flex-col text-grayCustom'>
             <h1 className='font-bold text-3xl text-black'>Utility pages</h1>

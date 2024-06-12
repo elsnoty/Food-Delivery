@@ -4,7 +4,7 @@ import Styles from "./NavBar.module.css"
 const NavBtns = () => {
   return (
     <div className='flex gap-5 max-md:flex-col'>
-    <Link href="/OrderOnline">
+    <Link href="/Menu">
       <button className={`bg-white p-3 rounded-full shadow-lg hover:bg-orangeCustom hover:text-white navHoverEff ${Styles.navHoverEff} max-md:w-full` }>Order Online</button>
     </Link>
     <Link href="/Contact">

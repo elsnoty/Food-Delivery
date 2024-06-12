@@ -7,6 +7,7 @@ import NavBtns from './NavBtns';
 import Styles from './NavBar.module.css';
 import { Hamburger } from './NavIcon';
 import NvLinks from './NvLinks';
+import CartToggle from './CartToggle';
 
 const Nav = () => {
   return (
