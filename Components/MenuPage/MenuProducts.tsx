@@ -70,6 +70,7 @@ const MenuProducts = () => {
                         href={{
                             pathname: `/Menu/${pro.id}`,
                             query: {
+                                id:pro.id,
                                 name: pro.name,
                                 details: pro.details,
                                 price: pro.price.toString(),
