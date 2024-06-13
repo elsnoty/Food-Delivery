@@ -6,17 +6,28 @@ import gsap from 'gsap';
 import Link from 'next/link';
 
 const ContactForm = () => {
-  const navRef = useRef(null);
-  
-  useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    
-    tl.fromTo(navRef.current, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 1, delay: 0.7 });
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
-  }, []);
+  useEffect(()=>{
+      const el = contentRef.current;
+
+      const observe = new IntersectionObserver((entries)=>{
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  gsap.fromTo(el, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 1, delay: 0.6, ease: "power4.out" });
+                  observe.disconnect();
+                }
+          });
+      }, {threshold: 0.1})
+      if(el) observe.observe(el);
+
+  return () => {
+      observe.disconnect;
+  };
+  }, [])
 
   return (
-    <div className=" px-7 py-16 shadow-xl border rounded-lg max-md:w-[100%] z-[1] bg-white" ref={navRef}>
+    <div className=" px-7 py-16 shadow-xl border rounded-lg max-md:w-[100%] z-[1] bg-white" ref={contentRef}>
       <form >
         <div className='flex justify-between gap-3 max-md:flex-col'>
         <div>

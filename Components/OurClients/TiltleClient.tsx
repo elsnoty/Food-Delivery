@@ -12,7 +12,7 @@ const TiltleClient = () => {
       <p className='text-grayCustom'>Lorem ipsum dolor sit amet consectetur adipiscing elit ugue quam diam vitae velit bibendum elementum.</p>
       <Comments />
       <div className='flex flex-wrap justify-center gap-3'>
-        <Link href="/OrderOnline">
+        <Link href="/Menu">
         <Btn className={`bg-orangeCustom text-white font-bold py-5 px-7 rounded-full shadow-sm shadow-[#ea580c] 
         ${Styles.navHoverEff} max-md:w-full mt-7 ml-2`} text={'Order Online'} />
         </Link>

@@ -20,10 +20,10 @@ const ProviderDetails = () => {
   };
 
   return (
-      <div>
+      <>
         <ProductDetails product={product} />
         <MenuApp />
-      </div>
+      </>
   );
 };
 

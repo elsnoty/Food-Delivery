@@ -46,12 +46,12 @@ const Cart = () => {
             initial={{ x: '100%' }}
             animate={{ x: isOpen ? '0%' : '100%' }}
             transition={{ duration: 0.5 }}
-            className='fixed right-0 top-0 bg-white h-full w-[40%] z-[11] p-5 shadow-xl'
+            className='fixed right-0 top-0 bg-white h-full w-[40%] z-[11] p-5 shadow-xl max-xl:w-[60%] max-md:w-full'
           >
             <div className='flex justify-between items-center py-2'>
               <h1 className='font-bold text-3xl'>Your Cart</h1>
               <div>
-                <X className='cursor-pointer bg-orangeCustom rounded-full' width={50} height={50} onClick={handleClose} />
+                <X className='cursor-pointer bg-orangeCustom rounded-full text-white' width={50} height={50} onClick={handleClose} />
               </div>
             </div>
             <hr />

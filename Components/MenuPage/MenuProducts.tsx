@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import pr1o from "../../public/pro1.jpeg";
 import pr2o from "../../public/pro2.jpeg";
 import pr3o from "../../public/pro3.jpeg";
@@ -10,6 +10,7 @@ import pr7o from "../../public/pro7.jpeg";
 import pr8o from "../../public/pro8.jpeg";
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
+import gsap from 'gsap';
 
 export interface Products {
     photo: StaticImageData;
@@ -30,6 +31,25 @@ const MenuProducts = () => {
         const handleCategoryClick = (category: string | null) => {
             setSelectedCategory(category);
         };
+        const contentRef = useRef<HTMLDivElement | null>(null);
+
+        useEffect(()=>{
+            const el = contentRef.current;
+      
+            const observe = new IntersectionObserver((entries)=>{
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        gsap.fromTo(el, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 1, delay: 0.6, ease: "power4.out" });
+                        observe.disconnect();
+                      }
+                });
+            }, {threshold: 0.1})
+            if(el) observe.observe(el);
+      
+        return () => {
+            observe.disconnect;
+        };
+        }, [])
     return (
         <div className='py-10'>
             <div className='flex gap-4 justify-center flex-wrap'>
@@ -64,7 +84,7 @@ const MenuProducts = () => {
                     Desserts
                 </button>
             </div>
-            <div className='grid grid-cols-4 gap-5 pt-10 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1'>
+            <div className='grid grid-cols-4 gap-5 pt-10 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1' ref={contentRef}>
                 {filteredProducts.map((pro) => (
                     <Link
                         href={{

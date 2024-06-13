@@ -1,6 +1,7 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Minus, Plus } from 'lucide-react';
+import gsap from 'gsap';
 
 interface Question {
     id: number;
@@ -46,9 +47,28 @@ const SectionQuestions = () => {
             return newStates;
         });
     };
+    const contentRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(()=>{
+        const el = contentRef.current;
+  
+        const observe = new IntersectionObserver((entries)=>{
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gsap.fromTo(el, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 1, delay: 0.6, ease: "power4.out" });
+                    observe.disconnect();
+                  }
+            });
+        }, {threshold: 0.1})
+        if(el) observe.observe(el);
+  
+    return () => {
+        observe.disconnect;
+    };
+    }, [])
 
     return (
-        <div>
+        <div ref={contentRef}>
             {questions.map((item, index) => (
                 <div
                     key={item.id}
