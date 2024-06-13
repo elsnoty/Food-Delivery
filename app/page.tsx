@@ -1,5 +1,6 @@
 import Aboutus from "@/Components/AboutUs/About";
 import Brand from "@/Components/Brands/Brand";
+import OurMenu from "@/Components/BrowseMenuSec1/OurMenu";
 import Contact from "@/Components/Contact/Contact";
 import Hero from "@/Components/Hero/Hero";
 import Instagram from "@/Components/Insagram/Instagram";
@@ -12,6 +13,7 @@ export default function Home() {
       <div>
         <Hero />
         <Brand />
+        <OurMenu />
         <Aboutus />
         <InspireSec />
         <TiltleClient />
